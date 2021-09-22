@@ -313,6 +313,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
             PurifierArmorTrainingProgression();
             ArmoredBattlemageArmorTrainingProgression();
             SteelbloodArmorTrainingProgression();
+            HellknightSignifierArmorTrainingProgress();
 
 
 
@@ -420,6 +421,31 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
 
             });
         }
+
+        static void HellknightSignifierArmorTrainingProgress()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("HellknightSigniferArmorTrainingProgression", x =>
+            {
+                BlueprintCharacterClass Signifier = Resources.GetBlueprint<BlueprintCharacterClass>("ee6425d6392101843af35f756ce7fefd");
+
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = Signifier.ToReference<BlueprintCharacterClassReference>();
+                    //Leaving standard progression/scaling because it's a gish build PRC and those are stuck competing with Magus, Warpriest and Battle Oracle. It should hardly be a balance issue if it gets full scaling here
+                });
+                x.IsClassFeature = true;
+                x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
+                x.SetName("Hellknight Signifier Armor Training Progression");
+                x.SetDescription("Increases your armor training rank by your Hellknight Signifier level, progressing Advanced Armor Training abilities.");
+                x.Ranks = 1;
+                x.AddComponent(progression);
+
+            });
+        }
+
 
         static void FighterArmorTrainingProgression()
         {
