@@ -203,6 +203,7 @@
     <Compile Include="NewComponents\PrerequisiteLogicalOR.cs" />
     <Compile Include="NewComponents\PrerequisitePsuedoProgressionRank.cs" />
     <Compile Include="NewComponents\PrerequisiteMythicSpellbook.cs" />
+    <Compile Include="NewComponents\PrerequisiteSpellbook.cs" />
     <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\PseudoProgressionRankClassModifier.cs" />
