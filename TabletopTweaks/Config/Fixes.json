@@ -337,7 +337,8 @@
             "DisableAll": false,
             "Enabled": {
                 "MagiciansRing": true,
-                "MetamagicRods": true
+                "MetamagicRods": true,
+                "HolySymbolofIomedae": true
             }
         },
         "Weapons": {
