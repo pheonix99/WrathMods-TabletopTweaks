@@ -112,7 +112,8 @@
             "ArmorMaster": true,
             "ArmoredMight": true,
             "MountedManiac": true,
-            "MythicSpellCombat": true
+            "MythicSpellCombat": true,
+            "PrecisionCritical": true
         }
     }
 }

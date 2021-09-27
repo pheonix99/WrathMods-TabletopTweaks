@@ -73,6 +73,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.ArmoredMight.AddArmoredMight();
                 MythicAbilities.MountedManiac.AddMountedManiac();
                 MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
+                MythicAbilities.PrecisionCritical.AddPrecisionCritical();
 
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();

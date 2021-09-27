@@ -1,3 +1,15 @@
+## Version 1.3.4
+* added precision critical
+
+## Version 1.3.3
+* fixed mounted maniac not triggering
+* fixed coup de grace not causing sneak attack damage
+* trickster UMD2 now allows you to ignore equipment restrictions as the description states
+* bolster should now be allowed on sticky touch spells like shocking grasp
+* empower should now be allowed on sticky touch spells like shocking grasp
+* maximize should now be allowed on sticky touch spells like shocking grasp
+* bolster splash damage should not longer hit you (unless you targeted a friendly)
+
 ## Version 1.3.2
 * extra slayer talents should now allow all slayers
 * coup de grace is now working again (opps)
