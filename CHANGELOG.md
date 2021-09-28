@@ -1,5 +1,13 @@
+## Version 1.3.4a
+* fixed issue where weapon materials didn't apply correctly
+* fixed issues where activiatable abilities with resources spent incorrecty
+* fixed issue where vital force was not properly applied to melee attacks
+
 ## Version 1.3.4
-* added precision critical
+* added precision critical mythic ability
+* rowdy's vital force now deals precision damage
+* profane ascension now works correctly for dexterity and strength based characters
+* sword saint's perfect critical now correctly costs 2 points of pool instead of 1
 
 ## Version 1.3.3
 * fixed mounted maniac not triggering

@@ -146,6 +146,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
+    <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\NestedSettingGroup.cs" />
     <Compile Include="Config\SettingGroup.cs" />
+    <Compile Include="MechanicsChanges\ActivatableAbilitySpendLogic.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
