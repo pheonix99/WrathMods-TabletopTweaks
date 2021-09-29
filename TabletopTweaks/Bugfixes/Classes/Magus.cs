@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Items;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -31,6 +32,20 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchArmoredBattlemage();
             }
             static void PatchBase() {
+                PatchSpellCombatDisableImmediatly();
+
+                void PatchSpellCombatDisableImmediatly(){
+                    if (ModSettings.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
+
+                    var SpellCombatAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("8898a573e8a8a184b8186dbc3a26da74");
+                    var SpellStrikeAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("e958891ef90f7e142a941c06c811181e");
+
+                    SpellCombatAbility.DeactivateImmediately = true;
+                    SpellStrikeAbility.DeactivateImmediately = true;
+
+                    Main.LogPatch("Patched", SpellCombatAbility);
+                    Main.LogPatch("Patched", SpellStrikeAbility);
+                }
             }
             static void PatchSwordSaint() {
                 PatchPerfectCritical();
@@ -49,6 +64,20 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
         }
+        [HarmonyPatch(typeof(ItemEntityWeapon), "HoldInTwoHands", MethodType.Getter)]
+        static class ItemEntityWeapon_HoldInTwoHands_Patch {
+            static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
+                if (ModSettings.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
+                var magusPart = __instance?.Wielder?.Get<UnitPartMagus>();
+                if (magusPart == null) { return; }
+                if (magusPart.CanUseSpellCombatInThisRound) {
+                    if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
+                        __result = false;
+                    }
+                }
+            }
+        }
+
 
         static void PatchArmoredBattlemage()
         {
