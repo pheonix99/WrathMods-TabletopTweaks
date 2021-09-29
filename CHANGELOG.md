@@ -1,3 +1,12 @@
+## Version 1.3.5
+* shatter defenses now works like in tabletop
+* extra feat mythic feat can now only be taken once
+* extra mythic ability mythic feat can now only be taken once
+* improvements to natual armor stacking rules
+* added mythic shatter defenses
+* added nature soul @Aegonek 
+* added animal ally @Aegonek 
+
 ## Version 1.3.4a
 * fixed issue where weapon materials didn't apply correctly
 * fixed issues where activiatable abilities with resources spent incorrecty

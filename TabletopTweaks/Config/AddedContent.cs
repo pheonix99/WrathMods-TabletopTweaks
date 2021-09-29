@@ -14,6 +14,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Races = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
+        public SettingGroup MythicFeats = new SettingGroup();
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as AddedContent;
@@ -30,6 +31,7 @@ namespace TabletopTweaks.Config {
             Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
+            MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
         }
     }
 }

@@ -321,6 +321,7 @@
             "MaximizeMetamagic": true,
             "MountedCombat": true,
             "PersistantMetamagic": true,
+            "ShatterDefenses": true,
             "SlashingGrace": true,
             "SpiritedCharge": true,
             "VitalStrike": true,
@@ -335,6 +336,13 @@
             "MythicCharge": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true
+        }
+    },
+    "MythicFeats": {
+        "DisableAll": false,
+        "Enabled": {
+            "ExtraFeat": true,
+            "ExtraMythicAbility": true
         }
     },
     "Items": {
