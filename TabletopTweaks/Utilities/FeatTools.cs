@@ -19,18 +19,12 @@ namespace TabletopTweaks.Utilities {
         public static void AddAsFeat(params BlueprintFeature[] features) {
             foreach (var feature in features) {
                 Selections.BasicFeatSelection.AddFeatures(features);
+                Selections.ExtraFeatMythicFeat.AddFeatures(features);
                 Selections.FeatSelections
                     .Where(selection => feature.HasGroup(selection.Group) || feature.HasGroup(selection.Group2))
                     .ForEach(selection => selection.AddFeatures(feature));
             }
-        }/*
-        public static void AddAsFeat(BlueprintFeature feature) {
-            var BasicFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
-            var ExtraFeatMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("e10c4f18a6c8b4342afe6954bde0587b");
-
-            BasicFeatSelection.AddFeatures(feature);
-            ExtraFeatMythicFeat.AddFeatures(feature);
-        }*/
+        }
         public static void AddAsRogueTalent(BlueprintFeature feature) {
             var TalentSelections = new BlueprintFeatureSelection[] {
                 Selections.SylvanTricksterTalentSelection,
@@ -132,6 +126,10 @@ namespace TabletopTweaks.Utilities {
                 bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Skills;
                 }));
+                bp.AddPrerequisite<PrerequisiteStatValue>(p => {
+                    p.Stat = StatType.Intelligence;
+                    p.Value = 3;
+                });
             });
             init?.Invoke(SkillFeat);
             return SkillFeat;
