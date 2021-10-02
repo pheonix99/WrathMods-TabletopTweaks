@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TabletopTweaks.NewComponents
+namespace TabletopTweaks.NewComponents.Prerequisites
 {
     public abstract class PrerequisiteAbstractLogical : Prerequisite
     {

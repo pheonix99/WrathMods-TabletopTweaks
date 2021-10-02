@@ -13,6 +13,7 @@ using System;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Prerequisites;
 
 namespace TabletopTweaks.Utilities {
     static class FeatTools {

@@ -204,10 +204,10 @@
     <Compile Include="NewComponents\OwlcatReplacements\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
-    <Compile Include="NewComponents\PrerequisiteAbstractLogical.cs" />
-    <Compile Include="NewComponents\PrerequisiteLogicalAND.cs" />
-    <Compile Include="NewComponents\PrerequisiteLogicalOR.cs" />
-    <Compile Include="NewComponents\PrerequisitePsuedoProgressionRank.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteAbstractLogical.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteLogicalAND.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteLogicalOR.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisitePsuedoProgressionRank.cs" />
     <Compile Include="NewComponents\PseudoProgressionRankClassModifier.cs" />
     <Compile Include="NewComponents\PseudoProgressionRankModifier.cs" />
     <Compile Include="NewComponents\AbilitySpecific\PrecisionCriticalComponent.cs" />

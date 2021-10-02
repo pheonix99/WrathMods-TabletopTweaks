@@ -11,8 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TabletopTweaks.NewComponents
-{
+namespace TabletopTweaks.NewComponents.Prerequisites {
     class PrerequisitePsuedoProgressionRank : Prerequisite
     {
         public BlueprintFeatureReference m_KeyRef;
