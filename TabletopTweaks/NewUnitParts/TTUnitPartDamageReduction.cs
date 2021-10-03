@@ -38,6 +38,10 @@ namespace TabletopTweaks.NewUnitParts {
         private readonly List<TTUnitPartDamageReduction.Immunity> m_Immunities = new List<TTUnitPartDamageReduction.Immunity>();
         private bool m_Cleanup = false;
 
+        public override void OnTurnOn() {
+            TryInitialize();
+        }
+
         public void AddPenaltyEntry(int penalty, EntityFact source) => this.PenaltyEntries.Add(new TTUnitPartDamageReduction.ReductionPenalty() {
             Penalty = penalty,
             Source = source
@@ -104,7 +108,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void Add(EntityFact fact) {
-            this.TryInitialize();
             if (this.m_SourceFacts.HasItem<EntityFact>(fact))
                 return;
             this.m_SourceFacts.Add(fact);
@@ -137,7 +140,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void ApplyDamageReduction(RuleCalculateDamage evt) {
-            this.TryInitialize();
             UnitPartClusteredAttack partClusteredAttack = evt.Initiator.Get<UnitPartClusteredAttack>();
             UnitPartClusteredAttack clusteredAttack = partClusteredAttack == null || !partClusteredAttack.IsSuitableForEvent(evt) ? null : partClusteredAttack;
             Dictionary<DamageTypeDescription, ChunkStack[]> damageTypeToBestDRMapping = new Dictionary<DamageTypeDescription, ChunkStack[]>();
