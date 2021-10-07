@@ -3,6 +3,7 @@
     "BaseFixes": {
         "DisableAll": false,
         "Enabled": {
+            "AlternateClassProgressions": true,
             "FeatSelections": true,
             "CoupDeGrace": true,
             "FixCriticalConfirmationOn20": true,
@@ -93,7 +94,6 @@
             "DisableAll": false,
             "Enabled": {
                 "AbysalBulk": true,
-                "LimitlessRage": true,
                 "Spellbook": true
             }
         },
@@ -101,6 +101,7 @@
             "Primalist": {
                 "DisableAll": false,
                 "Enabled": {
+                    "FixBrokenRagePowers": true,
                     "RagePowerFeatQualifications": true
                 }
             },
@@ -184,6 +185,16 @@
                 }
             }
         }
+    },
+    "Oracle": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {
+                "NaturesWhisperMonkStacking": true
+            }
+        },
+        "Archetypes": {}
     },
     "Kineticist": {
         "DisableAll": false,

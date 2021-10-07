@@ -16,22 +16,26 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.Bugfixes.Classes
-{
-    class Oracle{
+namespace TabletopTweaks.Bugfixes.Classes {
+    static class Oracle {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch{
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
-            static void Postfix()
-            {
+            static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
+                Main.LogHeader("Patching Oracle");
+                PatchBase();
                 Main.LogHeader("Patching Purifier Resources");
 
                 PatchPurifier();
             }
+            static void PatchBase() {
+                PatchNaturesWhisper();
 
+                void PatchNaturesWhisper() {
+                    if (ModSettings.Fixes.Oracle.Base.IsDisabled("NaturesWhisperMonkStacking")) { return; }
 
             /// <summary>
             /// Purifier's lost revelations are fixed archetype specific picks on tabletop
@@ -86,7 +90,16 @@ namespace TabletopTweaks.Bugfixes.Classes
                         x.Level = 7;
                         x.m_Class = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                         x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
+                    var OracleRevelationNatureWhispers = Resources.GetBlueprint<BlueprintFeature>("3d2cd23869f0d98458169b88738f3c32");
+                    var NaturesWhispersACConversion = Resources.GetModBlueprint<BlueprintFeature>("NaturesWhispersACConversion");
+                    var ScaledFistACBonus = Resources.GetBlueprint<BlueprintFeature>("3929bfd1beeeed243970c9fc0cf333f8");
 
+                    OracleRevelationNatureWhispers.RemoveComponents<ReplaceStatBaseAttribute>();
+                    OracleRevelationNatureWhispers.RemoveComponents<ReplaceCMDDexterityStat>();
+                    OracleRevelationNatureWhispers.AddComponent<HasFactFeatureUnlock>(c => {
+                        c.m_CheckedFact = ScaledFistACBonus.ToReference<BlueprintUnitFactReference>();
+                        c.m_Feature = NaturesWhispersACConversion.ToReference<BlueprintUnitFactReference>();
+                        c.Not = true;
                     });
 
                     void AddSelectionToLevel(int level)
@@ -149,7 +162,7 @@ namespace TabletopTweaks.Bugfixes.Classes
                     {
 
                         l.Features.Add(earlycure);
-                    }
+                }
                     Main.LogPatch("Patched", earlycure);
 
 
@@ -158,7 +171,8 @@ namespace TabletopTweaks.Bugfixes.Classes
 
 
 
-                }
+            }
+            static void PatchArchetypes() {
             }
         }
     }
