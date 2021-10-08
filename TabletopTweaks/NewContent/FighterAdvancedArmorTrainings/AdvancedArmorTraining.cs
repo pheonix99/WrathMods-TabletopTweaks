@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
+using Kingmaker.Designers.Mechanics.Facts;
 using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -143,6 +144,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<SelectionDefaultFeature>(c => {
                     c.DefaultFeature = ArmorTraining.ToReference<BlueprintFeatureReference>();
+                }));
+                bp.AddComponent(Helpers.Create<ArmorSpeedPenaltyRemoval>(c => {
                 }));
             });
 
