@@ -1,7 +1,7 @@
 ﻿{
     "AssemblyName": "TabletopTweaks.dll",
-    "Author": "Sean Petrie",
-    "DisplayName": "Tabletop Tweaks",
+    "Author": "Pheonix99 forking Sean Petrie",
+    "DisplayName": "Tabletop Tweaks Fork",
     "EntryMethod": "TabletopTweaks.Main.Load",
     "GameVersion": "1.0.8",
     "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",

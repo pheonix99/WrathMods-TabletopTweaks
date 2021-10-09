@@ -1,4 +1,30 @@
 ## PLEASE DO NOT SUBMIT BUG REPORTS WHILE USING THIS MOD AS THERE ARE SIGNIFICANT CHANGES IF YOU ABSOLUTELY MUST SUBMIT A BUG REPORT PLEASE NOTIFY OWLCAT THAT IT IS IN USE
+Pheonix99 additions
+Proliferated Advanced Armor Training to Armor Training for Hellknight, Hellknight Signifier, Purifier Oracle, Armored Battlemage Magus, and Steelblood Bloodrager, and made Advanced Armor Training scale with level in classes that give it, not just fighter
+     Purifier Oracle, Armored Battlemage Magus, and Steelblood Bloodrager adjustments are TT compliant.
+     Hellknight and Hellknight Signifier are not but non sneak attack melee needs all the help it can get.
+
+     Note that fighter levels in archetypes that don't give Armor training will still progress Advanced Armor Training if you have it from elsewhere
+
+Fixed Advanced Armor Training to give full speed in heavy armor
+    Two levels of Armor Training gives you full heavy armor speed regardless of whether the second is an advanced pick. This wasn't how it was working, now it is.
+
+Gave Purifier Oracle back level 3 revelation
+    Purifier Oracle loses their level 3 pick for an archetype specific revelation that's not in the game.
+    Since the replacement isn't in, I gave them the pick back.
+
+Gave Purifier back automatic CLW/CMW knowledge
+    Purifier is strictly worse than stock till level 5 without this.
+    Early Game Hell is in full effect, so strictly worse than stock early game is bad.
+
+Added Prodigious Two Weapon Fighting
+    Now classes other than Slayer/Ranger can use shield bash fighting styles without prohibitive MAD
+
+Fixed Longsword Of Right Damage Proc
+    In game it's 1d3 slash, but it's being treated as regular slash not cold iron magic slash. This pings on anything with any DR and can double-tap on spell added procs or sneak attacks so I made it the baby axiomatic effect it clearly is meant to be.
+
+
+##Main Branch Readme
 
 This mod seeks to adjust the game to be closer to the tabletop Pathfinder ruleset. This is primarily focused on rebuilding spells and fixing improperly implemented rules.
 
