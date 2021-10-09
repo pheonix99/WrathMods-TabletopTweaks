@@ -1,13 +1,13 @@
 ﻿{
-    "AssemblyName": "TabletopTweaks.dll",
-    "Author": "Pheonix99 forking Sean Petrie",
-    "DisplayName": "Tabletop Tweaks Fork",
-    "EntryMethod": "TabletopTweaks.Main.Load",
-    "GameVersion": "1.0.8",
-    "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
-    "Id": "TabletopTweaks",
-    "ManagerVersion": "0.23.0",
-    "Repository": "https://raw.githubusercontent.com/Vek17/WrathMods-TabletopTweaks/master/Repository.json",
-    "Requirements": [],
-    "Version": "1.5.2"
+  "AssemblyName": "TabletopTweaks.dll",
+  "Author": "Pheonix99 forking Sean Petrie",
+  "DisplayName": "Tabletop Tweaks Fork",
+  "EntryMethod": "TabletopTweaks.Main.Load",
+  "GameVersion": "1.0.8",
+  "HomePage": "https://github.com/pheonix99/WrathMods-TabletopTweaks",
+  "Id": "TabletopTweaksFork",
+  "ManagerVersion": "0.23.0",
+  "Repository": "https://github.com/pheonix99/WrathMods-TabletopTweaks/blob/ActualPlayBranch/Repository.json",
+  "Requirements": [],
+  "Version": "1.5.2"
 }
