@@ -97,6 +97,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.AnimalAlly.AddAnimalAlly();
                 Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
                 Feats.Stalwart.AddStalwart();
+                Feats.CelestialServant.AddCelestialServant();
 
                 Feats.ErastilsBlessing.AddErastilsBlessing();
 
