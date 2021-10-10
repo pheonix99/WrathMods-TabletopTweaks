@@ -225,7 +225,9 @@
         "DisableAll": false,
         "Base": {
             "DisableAll": false,
-            "Enabled": {}
+            "Enabled": {
+                "DivineMountTemplate": true
+            }
         },
         "Archetypes": {}
     },
