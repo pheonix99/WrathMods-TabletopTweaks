@@ -10,7 +10,7 @@ using Kingmaker.Blueprints;
 
 namespace TabletopTweaks.MechanicsChanges {
     class ProgressionFix {
-
+        /*
         [HarmonyPatch(typeof(BlueprintProgression), "CalcLevel")]
         static class Fix {
 
@@ -82,6 +82,6 @@ namespace TabletopTweaks.MechanicsChanges {
 
 
 
-        }
+        }*/
     }
 }
