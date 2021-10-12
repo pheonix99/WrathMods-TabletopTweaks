@@ -1,3 +1,10 @@
+## Version 1.7.1
+* fixed armor specilization cap being lower than it should have been
+
+## Version 1.7.0
+* arcane bloodrage rework (Thanks to @bguns)
+* added lecturer backgorund
+
 ## Version 1.6.1
 * fixed some buffs being dispellable that should not have been
 * fixed paladin divine mount template

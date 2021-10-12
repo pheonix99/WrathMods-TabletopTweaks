@@ -12,6 +12,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup MagusArcana = new SettingGroup();
         public SettingGroup PurifierCelestialArmor = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
+        public SettingGroup Backgrounds = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
         public SettingGroup MythicFeats = new SettingGroup();
@@ -29,6 +30,7 @@ namespace TabletopTweaks.Config {
             MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
             PurifierCelestialArmor.LoadSettingGroup(loadedSettings.PurifierCelestialArmor, NewSettingsOffByDefault);
             Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
+            Backgrounds.LoadSettingGroup(loadedSettings.Backgrounds, NewSettingsOffByDefault);
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
             MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
