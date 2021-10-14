@@ -232,20 +232,22 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
 
         static void ArmorTrainingProgression()
         {
-            BlueprintUnitProperty armorprop = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmorTrainingProgressionProperty", x =>
-            {
-                x.AddComponent(Helpers.Create<PseudoProgressionRankGetter>(y =>
-                {
-                    y.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
-
-                }));
-            });
-            Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingFlag", bp =>
-            {
+            Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingFlag", bp => {
                 bp.Ranks = 1;
                 bp.SetName("Armor Training");
                 bp.HideInCharacterSheetAndLevelUp = true;
             });
+            BlueprintUnitProperty armorprop = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmorTrainingProgressionProperty", x =>
+            {
+                
+                x.AddComponent(Helpers.Create<PseudoProgressionRankGetter>(y =>
+                {
+                    
+                    y.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+
+                }));
+            });
+            
             FighterArmorTrainingProgression();
             HellknightArmorTrainingProgress();
             PurifierArmorTrainingProgression();

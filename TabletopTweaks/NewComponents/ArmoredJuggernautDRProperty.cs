@@ -1,9 +1,11 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics.Properties;
+using TabletopTweaks.MechanicsChanges;
 
 namespace TabletopTweaks.NewComponents {
 
@@ -18,11 +20,14 @@ namespace TabletopTweaks.NewComponents {
 
             var armorProficiencyGroup = unit.Body.Armor.Armor.Blueprint.ProficiencyGroup;
 
-            int fighterLevel = 0;
-            foreach (ClassData classData in unit.Descriptor.Progression.Classes) {
+            PseudoProgressionRankGetter g = new PseudoProgressionRankGetter();
+            g.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+
+            int fighterLevel = g.GetValue(unit);
+            /*foreach (ClassData classData in unit.Descriptor.Progression.Classes) {
                 if (classData.CharacterClass.Equals(FighterClass))
                     fighterLevel += classData.Level;
-            }
+            }*/
 
             if (fighterLevel == 0)
                 return 0;
