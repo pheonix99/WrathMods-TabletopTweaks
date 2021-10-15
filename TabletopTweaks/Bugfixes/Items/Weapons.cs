@@ -13,7 +13,6 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Items {
     static class Weapons {
@@ -35,7 +34,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                     var BladeOfTheMercifulEnchant = Resources.GetBlueprint<BlueprintWeaponEnchantment>("a5e3fe4a71e331e4aa41f9a07cfd3729");
                     BladeOfTheMercifulEnchant.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
-                    BladeOfTheMercifulEnchant.AddComponent(Helpers.Create<WeaponConditionalDamageDice>(c => {
+                    BladeOfTheMercifulEnchant.AddComponent<WeaponConditionalDamageDice>(c => {
                         c.Damage = new DamageDescription() {
                             Dice = new DiceFormula() {
                                 m_Dice = DiceType.D6,
@@ -54,7 +53,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                                 }
                             }
                         };
-                    }));
+                    });
                     Main.LogPatch("Patched", BladeOfTheMercifulEnchant);
                 }
                 void PatchHonorableJudgement() {
@@ -65,7 +64,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                     var JudgementOfRuleEnchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("74a8dc2f9ce6ced4fa211c20fa4def32");
                     var BaneOutsiderEvil = Resources.GetBlueprint<BlueprintWeaponEnchantment>("20ba9055c6ae1e44ca270c03feacc53b");
                     JudgementOfRuleEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
-                    JudgementOfRuleEnchantment.AddComponent(Helpers.Create<WeaponConditionalDamageDice>(c => {
+                    JudgementOfRuleEnchantment.AddComponent<WeaponConditionalDamageDice>(c => {
                         c.Damage = new DamageDescription() {
                             Dice = new DiceFormula() {
                                 m_Dice = DiceType.D6,
@@ -87,7 +86,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                                 }
                             }
                         };
-                    }));
+                    });
                     Main.LogPatch("Patched", JudgementOfRuleEnchantment);
                 }
                 void PatchLongswordOfRight()
@@ -120,12 +119,6 @@ namespace TabletopTweaks.Bugfixes.Items {
                     */
 
                 }
-            }
-        }
-        [HarmonyPatch(typeof(WeaponConditionalDamageDice), "OnEventAboutToTrigger")]
-        static class WeaponConditionalDamageDice_OnEventAboutToTrigger_Patch {
-            static void Postfix(WeaponConditionalDamageDice __instance) {
-                Main.Log($"TRIGGERD: {__instance?.Fact?.Blueprint?.name}");
             }
         }
     }

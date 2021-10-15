@@ -20,6 +20,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var FighterFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
 
+            var ArmorTrainingSpeedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature", bp => {
+                bp.Ranks = 5;
+                bp.SetName("Armor Training Speed");
+                bp.SetDescription("");
+                bp.HideInUI = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.IsClassFeature = true;
+                bp.AddComponent<ArmorSpeedPenaltyRemoval>();
+            });
             ArmorTrainingProgression();
             //Creating class progression feats
 

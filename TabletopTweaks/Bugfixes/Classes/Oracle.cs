@@ -44,6 +44,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.m_Feature = NaturesWhispersACConversion.ToReference<BlueprintUnitFactReference>();
                         c.Not = true;
                     });
+                    Main.LogPatch("Patched", OracleRevelationNatureWhispers);
                 }
             }
         }
