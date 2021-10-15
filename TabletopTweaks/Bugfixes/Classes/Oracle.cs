@@ -105,9 +105,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         
                     });
                     PuriferArchetype.AddFeatures.First(x => x.Level == 7).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
-                    PuriferArchetype.AddFeatures.First(x => x.Level == 11).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
-                    PuriferArchetype.AddFeatures.First(x => x.Level == 15).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
-                    PuriferArchetype.AddFeatures.First(x => x.Level == 1).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    
                     void AddSelectionToLevel(int level) {
                         LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
                         if (l == null) {
