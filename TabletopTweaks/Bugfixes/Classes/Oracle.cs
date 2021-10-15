@@ -87,6 +87,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
+                    var ArmorTrainingSpeedFeature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature");
                     CelestialArmor.RemoveComponents<AddFacts>(x => true);//This is ugly but I can't get a conditonal to work here
 
                     CelestialArmor.AddComponent<AddFeatureOnClassLevel>(x => {
@@ -101,31 +102,37 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
 
 
-                        void AddSelectionToLevel(int level) {
-                            LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
-                            if (l == null) {
-                                l = new LevelEntry {
-                                    Level = level
-
-
-
-                                };
-                                l.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
-                                PuriferArchetype.AddFeatures.AddItem(l);
-
-                            } else {
-                                l.Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
-                            }
-                        }
-
-                        AddSelectionToLevel(11);
-                        AddSelectionToLevel(15);
-                        AddSelectionToLevel(19);
-
-                        Main.LogPatch("Patched", CelestialArmor);
+                        
                     });
+                    PuriferArchetype.AddFeatures.First(x => x.Level == 7).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    PuriferArchetype.AddFeatures.First(x => x.Level == 11).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    PuriferArchetype.AddFeatures.First(x => x.Level == 15).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    PuriferArchetype.AddFeatures.First(x => x.Level == 1).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    void AddSelectionToLevel(int level) {
+                        LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
+                        if (l == null) {
+                            l = new LevelEntry {
+                                Level = level
 
+
+
+                            };
+                            l.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                            l.m_Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                            PuriferArchetype.AddFeatures.AddItem(l);
+
+                        } else {
+                            l.Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                            l.Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                        }
                     }
+
+                    AddSelectionToLevel(11);
+                    AddSelectionToLevel(15);
+                    AddSelectionToLevel(19);
+
+                    Main.LogPatch("Patched", CelestialArmor);
+                }
 
                 void PatchRestoreCure() {
 

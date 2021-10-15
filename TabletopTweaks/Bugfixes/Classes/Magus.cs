@@ -67,6 +67,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchArmorTraining();
                 void PatchArmorTraining() {
                     var ArmoredBattlemageArchetype = Resources.GetBlueprint<BlueprintArchetype>("67ec8dcae6fb3d3439e5ae874ddc7b9b");
+                    var ArmorTrainingSpeedFeature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature");
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
 
                     ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 1).m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("ArmoredBattlemageArmorTrainingProgression").ToReference<BlueprintFeatureBaseReference>());
@@ -81,11 +82,17 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 13).Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                     ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 18).Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
 
+                    ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 3).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 8).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 13).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                    ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 18).Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+
                     ArmoredBattlemageArmorTraining.AddComponent<AddFeatureOnClassLevel>(x => {
                         x.Level = 3;
                         x.m_Class = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                         x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
                     });
+                    
 
                     Main.LogPatch("Patched", ArmoredBattlemageArmorTraining);
                 }

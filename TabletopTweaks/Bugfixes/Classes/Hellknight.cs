@@ -45,7 +45,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
-
+                    var ArmorTrainingSpeedFeature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature");
 
                     BaseProgression.LevelEntries
                         .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
@@ -53,6 +53,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         {
                             entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                             entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
+                            entry.m_Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
                         });
 
                     Main.LogPatch("Patched", BaseProgression);

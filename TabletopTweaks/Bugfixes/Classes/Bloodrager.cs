@@ -335,6 +335,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchArmorTraining();
 
                 void PatchArmorTraining() {
+                    var ArmorTrainingSpeedFeature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature");
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
                     var Steelblood = Resources.GetBlueprint<BlueprintArchetype>("32a5dff92373a9641b43e97d453b9369");
@@ -342,8 +343,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
                     foreach (LevelEntry i in Steelblood.AddFeatures.Where(x => x.Features.Contains(ArmorTraining) && x.Level > 5)) {
-                        i.Features.Remove(ArmorTraining);
-                        i.Features.Add(ArmorTrainingSelection);
+                        if (i.Level > 5) {
+                            i.Features.Remove(ArmorTraining);
+                            i.Features.Add(ArmorTrainingSelection);
+                        }
+                        i.Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
                     }
                 }
             }

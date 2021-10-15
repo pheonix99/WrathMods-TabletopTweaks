@@ -12,6 +12,7 @@ using TabletopTweaks.MechanicsChanges;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
+using System.Linq;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
     class AdvancedArmorTraining {
@@ -145,7 +146,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.HideInUI = true;
                 bp.SetName("Armor Speed Up");
-                bp.AddComponent(Helpers.Create<ArmorSpeedPenaltyRemoval>());
+                //bp.AddComponent(Helpers.Create<ArmorSpeedPenaltyRemoval>());
 
             });
 
@@ -265,11 +266,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             HellknightSignifierArmorTrainingProgress();
         }
 
+        
+
         static void SteelbloodArmorTrainingProgression()
         {
+            var Steelblood = Resources.GetBlueprint<BlueprintArchetype>("32a5dff92373a9641b43e97d453b9369");
             Helpers.CreateBlueprint<BlueprintFeature>("SteelbloodArmorTrainingProgression", x =>
             {
-                var Steelblood = Resources.GetBlueprint<BlueprintArchetype>("32a5dff92373a9641b43e97d453b9369");
+                
                 PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
                 x =>
                 {
@@ -286,6 +290,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 x.AddComponent(progression);
 
             });
+            
+            
         }
 
         static void PurifierArmorTrainingProgression()
